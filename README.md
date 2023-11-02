@@ -59,4 +59,4 @@ Each pod requests 125m CPU and 64 MiB of RAM memory.
 ```
 kubectl describe pod -n lab4
 ```
-Three pods with the specified resource limits and request are visible in the output of `kubectl describe`` command.
+Three pods with the specified resource limits and request are visible in the output of `kubectl describe` command.
