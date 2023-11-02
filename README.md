@@ -29,7 +29,8 @@ kubectl describe ns lab4
 kubectl -n lab4 apply -f deployment.yml
 ```
 
-6. Check if the deployment was created successfully:
+## Verifying the solution
+1. Check if the deployment was created successfully:
 ```
 kubectl describe deployment -n lab4 restrictednginx
 ```
@@ -37,6 +38,7 @@ kubectl describe deployment -n lab4 restrictednginx
 ![Screenshot of the kubectl describe deployment command](./deployment.png)
 Three replicas are visible.
 
+2. Check if the pods are running:
 ```
 kubectl -n lab4 get pod
 ```
@@ -44,6 +46,7 @@ kubectl -n lab4 get pod
 ![Screenshot of the kubectl get pod command](./pods.png)
 Three pods are visible.
 
+3. Check the resource limits and requests of the pods:
 ```
 kubectl get pod -n lab4 -o custom-columns="Name:metadata.name,CPU-limit:spec.containers[*].resources.limits.cpu,RAM-limit:spec.containers[*].resources.limits.memory,CPU-request:spec.containers[*].resources.requests.cpu,RAM-request:spec.containers[*].resources.requests.memory"
 ```
@@ -52,6 +55,7 @@ kubectl get pod -n lab4 -o custom-columns="Name:metadata.name,CPU-limit:spec.con
 Each pod has a 250m CPU limit and 256 MiB memory limit.
 Each pod requests 125m CPU and 64 MiB of RAM memory.
 
+4. Check other information about the pods:
 ```
 kubectl describe pod -n lab4
 ```
